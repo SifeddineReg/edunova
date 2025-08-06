@@ -250,8 +250,8 @@ const generateHorizontalFlowElements = (data) => {
 function App() {
   const [selectedNode, setSelectedNode] = useState(null);
   const { nodes, edges } = generateHorizontalFlowElements(flowchart_data);
-  const [nodesState, setNodes, onNodesChange] = useNodesState(nodes);
-  const [edgesState, setEdges, onEdgesChange] = useEdgesState(edges);
+  const [nodesState, _setNodes] = useNodesState(initialNodes);
+  const [edgesState, _setEdges] = useEdgesState(initialEdges);
 
   const onNodeClick = useCallback((event, node) => {
     setSelectedNode(node.id);
