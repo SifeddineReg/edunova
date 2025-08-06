@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React, { useState, useCallback } from 'react';
 import ReactFlow, { Background, Controls, useNodesState, useEdgesState } from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -250,8 +252,8 @@ const generateHorizontalFlowElements = (data) => {
 function App() {
   const [selectedNode, setSelectedNode] = useState(null);
   const { nodes, edges } = generateHorizontalFlowElements(flowchart_data);
-  const [nodesState, _setNodes] = useNodesState(initialNodes);
-  const [edgesState, _setEdges] = useEdgesState(initialEdges);
+  const [nodesState, setNodes, onNodesChange] = useNodesState(nodes);
+  const [edgesState, setEdges, onEdgesChange] = useEdgesState(edges);
 
   const onNodeClick = useCallback((event, node) => {
     setSelectedNode(node.id);
